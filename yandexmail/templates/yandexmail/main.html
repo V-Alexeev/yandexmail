@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Webmail login</title>
+    <style type="text/css">
+        body {
+            font-size: 25px;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        div {
+            padding-top: 200px;
+        }
+
+        input {
+            font-size: 25px;
+            width: 400px;
+        }
+
+        ul.errorlist {
+            list-style-type: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form method="POST" action="{% url yandexmail_webmail_login %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login"/>
+    </form>
+    <a href="{% url mailauth_change_password %}">Change password</a>
+</div>
+</body>
+</html>

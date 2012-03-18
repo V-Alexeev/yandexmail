@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Local/Yandex difference report</title>
+</head>
+<body>
+{% for domain_name, differences in result.items %}
+    <div>
+    <h2>{{ domain_name }}</h2>
+    <h3>Not on Yandex:</h3>
+    <ol>
+        {% for acc in differences.missing_from_yandex %}
+            <li>{{ acc }}</li>
+        {% empty %}
+            <li>None</li>
+        {% endfor %}
+    </ol>
+    <h3>Not in local database:</h3>
+    <ol>
+        {% for acc in differences.missing_from_local %}
+            <li>{{ acc }}</li>
+        {% empty %}
+            <li>None</li>
+        {% endfor %}
+    </ol>
+    </div>
+{% endfor %}
+</body>
+</html>

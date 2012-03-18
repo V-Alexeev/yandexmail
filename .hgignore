@@ -1,0 +1,33 @@
+syntax: glob
+*.orig
+*.pyc
+*.db
+*.pot
+*~
+*.pyo
+upload/*
+logs/*
+local_settings.py
+.project
+.pydevproject
+.settings
+.idea
+apps/contract_specs
+uploads/
+static/cache/
+static/searchindex/
+static/videos/
+static/forum/
+static/img/free_consult/counter.jpg
+core
+static/videos/
+static/cache/
+docs/
+media/uploads/
+apps/routers.py
+wkhtmltopdf*
+build
+src
+mt4/restart_report.log
+syntax: regexp
+(.*/)?\#[^/]*\#$
