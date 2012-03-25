@@ -1,8 +1,8 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from mailauth.models import MailUser
-from mailauth.utils import generate_password
+from nginxmailauth.models import MailUser
+from nginxmailauth.utils import generate_password
 
 from models import YandexDomain
 

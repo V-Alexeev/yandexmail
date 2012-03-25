@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from mailauth.models import MailUser
-from mailauth.utils import generate_password
+from nginxmailauth.models import MailUser
+from nginxmailauth.utils import generate_password
 
 from yandexmail.models import YandexDomain
 from yandexmail.YandexMailApi import YandexMailApi, YandexApiException

@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.shortcuts import render_to_response
 from django.template.context import RequestContext
 
-from mailauth.models import MailUser
+from nginxmailauth.models import MailUser
 
 from models import YandexDomain
 
