@@ -18,7 +18,7 @@ class LoginForm(forms.Form):
         except (MailUser.DoesNotExist, MailUser.MultipleObjectsReturned):
             raise forms.ValidationError("Incorrect username or password")
 
-        if mail_user.authenticate(self.cleaned_data['password']):
+        if self.cleaned_data.get('password') and mail_user.authenticate(self.cleaned_data['password']):
             self.cleaned_data['user'] = mail_user
         else:
             raise forms.ValidationError("Incorrect username or password")
