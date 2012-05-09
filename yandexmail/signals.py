@@ -5,6 +5,7 @@ from nginxmailauth.models import MailUser
 from nginxmailauth.utils import generate_password
 
 from models import YandexDomain
+from YandexMailApi import YandexApiException
 
 
 @receiver(post_save, sender=MailUser)
@@ -21,6 +22,10 @@ def create_user_at_yandex(sender, **kwargs):
     except YandexDomain.DoesNotExist:
         return
     password = generate_password()
-    yd.api.create_user(username, password)
-    instance.external_password = password
-    instance.save()
+    try:
+        yd.api.create_user(username, password)
+    except YandexApiException:
+        pass
+    else:
+        instance.external_password = password
+        instance.save()
