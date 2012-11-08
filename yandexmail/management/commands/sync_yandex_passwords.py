@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         for yandex_domain in YandexDomain.objects.all():
-            for user in MailUser.objects.filter(external_username__contains="@"+yandex_domain.name):
+            for user in MailUser.objects.active().filter(external_username__contains="@"+yandex_domain.name):
                 username, domain = user.external_username.split('@')
                 try:
                     yandex_domain.api.edit_user_details(login=username, password=user.external_password)

@@ -14,7 +14,7 @@ class LoginForm(forms.Form):
 
     def clean(self):
         try:
-            mail_user = MailUser.objects.select_related().get(internal_username=self.cleaned_data['username'])
+            mail_user = MailUser.objects.active().select_related().get(internal_username=self.cleaned_data['username'])
         except (MailUser.DoesNotExist, MailUser.MultipleObjectsReturned):
             raise forms.ValidationError("Incorrect username or password")
 
