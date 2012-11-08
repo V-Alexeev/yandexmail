@@ -34,5 +34,5 @@ setup(name='yandexmail',
     dependency_links = [
         'http://github.com/V-Alexeev/nginxmailauth/tarball/master#egg=nginxmailauth-dev',
     ],
-    version='0.5',
+    version='0.6',
 )
